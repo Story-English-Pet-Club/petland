@@ -1,0 +1,18 @@
+/* 클래스펫츠 꾸미기 공통 움직임: 반짝이는 반짝반짝, 미니펫은 통통 (날아다니는 친구는 둥실) */
+.deco.d-aura { animation: cpd-twinkle 2.4s ease-in-out infinite; pointer-events: none; }
+/* 미니펫: 가만히 있을 땐 숨 쉬듯 들썩·가끔 폴짝, 펫이 걸으면 뒤뚱뒤뚱, 날아다니는 친구는 둥실 + 파닥파닥 */
+.deco.d-buddy { animation: cpd-idle 3.2s ease-in-out infinite; transform-origin: 50% 97%; pointer-events: none; }
+[data-act^="walk"] .deco.d-buddy:not(.fly) { animation: cpd-waddle .46s ease-in-out infinite; }
+[data-act^="happy"] .deco.d-buddy:not(.fly), [data-act^="celebrate"] .deco.d-buddy:not(.fly), [data-act^="jump"] .deco.d-buddy:not(.fly) { animation: cpd-hop .5s ease-in-out infinite; }
+.deco.d-buddy.fly { animation: cpd-float 2.8s ease-in-out infinite, cpd-flap .34s ease-in-out infinite; }
+[data-act^="walk"] .deco.d-buddy.fly { animation: cpd-float 1.4s ease-in-out infinite, cpd-flap .22s ease-in-out infinite; }
+.deco.d-back { pointer-events: none; }
+@keyframes cpd-twinkle { 0%, 100% { opacity: 1; translate: 0 0; } 50% { opacity: .55; translate: 0 -3%; } }
+@keyframes cpd-idle { 0%, 30%, 60%, 100% { translate: 0 0; scale: 1 1; } 15%, 45% { scale: 1.03 .96; } 72% { translate: 0 -12%; scale: .97 1.04; } 80% { translate: 0 0; scale: 1.05 .94; } 86% { scale: 1 1; } }
+@keyframes cpd-waddle { 0%, 100% { rotate: -7deg; translate: 0 0; } 25%, 75% { translate: 0 -7%; } 50% { rotate: 7deg; translate: 0 0; } }
+@keyframes cpd-hop { 0%, 100% { translate: 0 0; scale: 1.05 .95; } 45% { translate: 0 -22%; scale: .96 1.05; } }
+@keyframes cpd-flap { 0%, 100% { scale: 1 1; } 50% { scale: .9 1.03; } }
+@keyframes cpd-float { 0%, 100% { translate: 0 -60%; } 50% { translate: 0 -75%; } }
+@media (prefers-reduced-motion: reduce) { .deco.d-aura, .deco.d-buddy { animation: none; } .deco.d-buddy.fly { translate: 0 -65%; } }
+/* 날갯짓 그림이 있는 친구는 그림으로 파닥이니 찌그러뜨리지 않음 */
+.deco.d-buddy.fly[data-bframes], [data-act^="walk"] .deco.d-buddy.fly[data-bframes] { animation: cpd-float 2.8s ease-in-out infinite; }
