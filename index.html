@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
+<meta name="referrer" content="no-referrer">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data:; style-src 'self'; script-src 'self'; connect-src 'self'; font-src 'self'; base-uri 'none'; form-action 'none'">
+<meta name="theme-color" content="#8E91FD">
+<title>펫나라</title>
+<link rel="stylesheet" href="viewer.css?v=ab529afcfc">
+<link rel="stylesheet" href="deco.css?v=7000be8dc8">
+<link rel="stylesheet" href="fx.css?v=c9b2b41cec">
+</head>
+<body>
+<header id="top">
+  <span class="logo" aria-hidden="true"></span>
+  <div class="ttl"><b id="cls">펫나라</b><span id="upd"></span></div>
+  <button id="gamesBtn" type="button">🎮 Games <small>영어 놀이</small></button>
+</header>
+<main id="scene" aria-label="Pet Land">
+  <img id="bg" alt=""><div id="bgfill" aria-hidden="true"></div>
+  <div id="team" hidden>
+    <div class="tg"><span class="star">★</span><b id="tPts">0</b><span class="lbl">Team points</span><span id="tNext"></span></div>
+    <div class="tbar"><i id="tBar"></i></div>
+    <div id="tQuest" hidden></div>
+  </div>
+  <div id="hint" hidden>Tap your pet or the shop!</div>
+  <div id="pets"></div>
+  <div id="msg" class="msg">펫나라를 여는 중이에요…</div>
+  <nav id="places" hidden aria-label="Places"></nav>
+  <div id="toast" hidden></div>
+</main>
+<div id="dim" hidden></div>
+<section id="sheet" hidden aria-live="polite">
+  <div class="grab"></div>
+  <div class="row">
+    <div class="tile" id="big"></div>
+    <div class="info"><b id="sName"></b><span id="sWho"></span><span class="chip" id="sStage"></span></div>
+    <button id="close" aria-label="Close">×</button>
+  </div>
+  <div class="hearts"><span class="hi" id="hIcon"></span><b id="sHearts"></b><span id="sNext"></span></div>
+  <div class="bar"><i id="sBar"></i></div>
+  <p class="tip" id="sTip" hidden>Tap a trick to watch it!</p>
+  <div class="tricks" id="sTricks"></div>
+  <button id="goRoom" type="button">🏠 Visit room <small>방에 가기</small></button>
+</section>
+<section id="order" hidden aria-label="Make an order">
+  <div class="room-top"><button id="orderBack" aria-label="Back">←</button><b>🧾 My order</b><span>주문서 만들기</span></div>
+  <div class="room-body" id="orderBody"></div>
+</section>
+<section id="room" hidden aria-label="Pet room">
+  <div class="room-top"><button id="roomBack" aria-label="Back">←</button><b id="rTitle"></b><span id="rWho"></span></div>
+  <div class="room-body">
+    <div id="rScene" data-room="1"><img class="rbg" id="rBg" alt=""><div id="rPets"></div></div>
+    <div class="rcard">
+      <div class="rrow"><span class="chip" id="rStage"></span><span id="rNext"></span></div>
+      <div class="bar xp"><i id="rBar"></i></div>
+      <div class="rstats"><span><i id="rXpI"></i><b id="rXp"></b> XP</span><span><i id="rCoinI"></i><b id="rCoin"></b> coins</span><span><i id="rHeartI"></i><b id="rHeart"></b> hearts</span></div>
+    </div>
+    <div class="rcard"><b class="rh">Tricks</b><div class="tricks" id="rTricks"></div></div>
+    <div class="rcard"><b class="rh">My things <small>가진 물건 · 누르면 입어 보기</small></b><div id="rThings"></div>
+      <p class="rtry" id="rTryNote" hidden>👀 입어 보는 중 · 저장되지 않아요 <button id="rReset" type="button">↺ 원래대로</button></p>
+      <button id="rTry" type="button">🎨 Try new things <small>상점 물건 입어 보기</small></button></div>
+  </div>
+</section>
+<section id="game" hidden aria-label="English games">
+  <div class="room-top"><button id="gameBack" aria-label="Back">←</button><b id="gTitle"></b><span id="gSub"></span></div>
+  <div class="room-body" id="gBody"></div>
+</section>
+<section id="shop" hidden aria-label="Pet Shop">
+  <div class="shop-top"><b>Pet Shop</b><span class="small">찜(♡)은 이 휴대폰에만 저장돼요</span><button id="shopClose" aria-label="Close">×</button></div>
+  <div id="shopPick" hidden></div>
+  <div id="tryBox"><div id="tScene" data-room="1"><img class="rbg" id="tBg" alt=""><div id="tPets"></div></div>
+    <div class="tctl"><button id="tWho" type="button" aria-label="Change pet"></button><button id="tReset" type="button" hidden>↺ 원래대로</button>
+      <div class="tricks" id="tTricks"></div></div></div>
+  <nav id="shopTabs"></nav>
+  <div id="shopList"></div>
+</section>
+<script src="deco.js?v=f4be0a86e8"></script>
+<script src="fx.js?v=3e9aea9b42"></script>
+<script src="viewer.js?v=f65ddf9370"></script>
+</body>
+</html>
