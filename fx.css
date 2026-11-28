@@ -1,0 +1,46 @@
+/* 클래스펫츠 재주 파티클 (펫나라 · PPT 위 펫 · 키오스크 공통) */
+.fxp { position: absolute; pointer-events: none; transform: translate(-50%, -50%); animation-timing-function: ease-out; animation-fill-mode: both; z-index: 2; }
+.fxp > svg, .fxp > img { width: 100%; height: 100%; display: block; image-rendering: pixelated; }
+.fxp.rise { animation-name: fx-rise; }
+.fxp.puff { animation-name: fx-puff; }
+.fxp.twinkle { animation-name: fx-twinkle; }
+.fxp.sweep { animation-name: fx-sweep; animation-timing-function: linear; }
+.fxp.trail { animation-name: fx-trail; animation-timing-function: linear; z-index: 0; }
+.fxp.burst { animation-name: fx-burst; animation-timing-function: cubic-bezier(.15, .8, .3, 1); }
+.fxp.shoot { animation-name: fx-shoot; animation-timing-function: ease-in; }
+.fxp.fxpop { animation-name: fx-pop; }
+.fxp.float { animation-name: fx-float; animation-timing-function: ease-in-out; }
+@keyframes fx-rise { 0% { opacity: 0; translate: 0 0; } 15% { opacity: 1; } 100% { opacity: 0; translate: var(--vx) var(--vy); } }
+@keyframes fx-puff { 0% { opacity: .9; scale: .6; translate: 0 0; } 100% { opacity: 0; scale: 1.4; translate: var(--vx) var(--vy); } }
+@keyframes fx-twinkle { 0% { opacity: 0; scale: .3; } 40% { opacity: 1; scale: 1.1; } 100% { opacity: 0; scale: .5; translate: 0 var(--vy); } }
+@keyframes fx-sweep { 0%, 100% { rotate: -20deg; } 25%, 75% { rotate: 20deg; } 50% { rotate: -20deg; } }
+@keyframes fx-trail { 0% { opacity: .95; scale: 1 1; } 100% { opacity: 0; scale: 1.25 .4; } }
+@keyframes fx-burst { 0% { opacity: 0; scale: .4; translate: 0 0; } 10% { opacity: 1; scale: 1.2; } 70% { opacity: 1; } 100% { opacity: 0; scale: .6; translate: var(--vx) calc(var(--vy) * -1 + 20px); } }
+@keyframes fx-shoot { 0% { opacity: 1; translate: 0 0; } 100% { opacity: .2; translate: 0 var(--vy); } }
+@keyframes fx-pop { 0% { opacity: 0; scale: .2; } 30% { opacity: .9; scale: 1; } 100% { opacity: 0; scale: 1.5; } }
+@keyframes fx-float { 0% { opacity: 0; scale: .3; translate: 0 0; } 15% { opacity: 1; scale: 1; } 50% { translate: calc(var(--vx) * .5 + 8px) calc(var(--vy) * .5); } 85% { opacity: 1; } 100% { opacity: 0; scale: 1.15; translate: var(--vx) var(--vy); } }
+/* 무지개 꼬리 */
+.fxp .rb { width: 100%; height: 100%; border-radius: 40% 40% 30% 30%; background: linear-gradient(180deg, #FF6B8B 0 16%, #FFA94D 16% 32%, #FFE066 32% 48%, #69DB7C 48% 64%, #4DABF7 64% 80%, #B197FC 80% 100%); opacity: .85; }
+/* 불꽃 번쩍 */
+.fxp .flash { width: 100%; height: 100%; border-radius: 50%; background: radial-gradient(circle, rgba(255, 255, 255, .95) 0 12%, rgba(255, 230, 120, .7) 25%, rgba(255, 140, 180, .25) 50%, transparent 70%); }
+/* 비눗방울 */
+.fxp .bub { width: 100%; height: 100%; border-radius: 50%; border: 1.5px solid rgba(255, 255, 255, .9);
+  background: radial-gradient(circle at 32% 30%, #fff 0 10%, transparent 12%), radial-gradient(circle at 50% 50%, transparent 55%, var(--c, #CFF4FF) 100%);
+  box-shadow: inset -2px -3px 6px rgba(150, 120, 255, .35), 0 0 4px rgba(255, 255, 255, .6); }
+/* 마법진: 발밑에서 빙글빙글 */
+.fxring { position: absolute; left: 0; top: 0; transform: translate(-50%, -50%) scaleY(.32); pointer-events: none; opacity: 0; z-index: 0; }
+.fxring > div { position: absolute; inset: 0; border-radius: 50%; }
+.fxring .r1 { border: 3px dashed rgba(180, 140, 255, .95); box-shadow: 0 0 10px rgba(180, 140, 255, .9), inset 0 0 10px rgba(180, 140, 255, .7); animation: fx-ring 2.4s linear infinite; }
+.fxring .r2 { inset: 18%; border: 2px dotted rgba(255, 230, 140, .95); animation: fx-ring 1.6s linear infinite reverse; }
+@keyframes fx-ring { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+/* 분신 */
+.fxclone { pointer-events: none; filter: saturate(1.3) brightness(1.1); }
+@media (prefers-reduced-motion: reduce) { .fxring .r1, .fxring .r2 { animation: none; } }
+/* 그림이 있을 때 (fx v3) */
+.fxp > .fxi { width: 100%; height: 100%; display: block; image-rendering: auto; object-fit: contain; }
+.fxp.still { animation-name: fx-still; animation-timing-function: linear; }
+@keyframes fx-still { 0% { opacity: 1; } 80% { opacity: 1; } 100% { opacity: 0; } }
+.fxring.art > img { position: absolute; inset: 0; width: 100%; height: 100%; filter: drop-shadow(0 0 6px rgba(190, 150, 255, .9)); }
+.fxring.art > img.spin { animation: fx-ring 3.2s linear infinite; }
+.fxflame { position: absolute; left: 0; top: 0; transform: translateX(-50%); pointer-events: none; opacity: 0; z-index: 0; }
+.fxflame > img { width: 100%; height: 100%; display: block; }
